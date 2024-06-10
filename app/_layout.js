@@ -14,6 +14,8 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Platypi: require('../assets/fonts/Platypi-Bold.ttf'),
+    PlatypiLight: require('../assets/fonts/Platypi-Light.ttf'),
   });
 
   useEffect(() => {
@@ -28,8 +30,18 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack
+       screenOptions={{
+        gestureDirection:'vertical',
+        gestureEnabled: true
+      }}
+      >
+
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="login" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />
+        <Stack.Screen name="forgetpassword" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
